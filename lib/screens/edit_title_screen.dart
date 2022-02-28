@@ -17,10 +17,13 @@ class EditTitleScreen extends StatefulWidget {
 
 class _EditTitleScreenState extends State<EditTitleScreen> {
   String taskTitle = "hedha raw test";
-
+  
   @override
   Widget build(BuildContext context) {
+
     Task task = widget.task;
+    TextEditingController controller=TextEditingController(text: task.title);
+
     return Container(
       padding: const EdgeInsets.all(20),
       child: ListView(
@@ -34,6 +37,7 @@ class _EditTitleScreenState extends State<EditTitleScreen> {
             ),
           ),
           TextField(
+            controller:controller,
             autofocus: true,
             onChanged: (val) {
               taskTitle = val;
